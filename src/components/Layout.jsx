@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         {navButtons.map((buttonName, index) => (
           <button
             key={index}
-            className="bg-transparent hover:bg-[#FFB5C5] text-black border-2 border-black font-semibold  px-8 py-1 rounded-full transition-all duration-300"
+            className="bg-transparent hover:bg-[#FFB5C5] text-black border border-black   px-8 py-1 rounded-full transition-all duration-300"
           >
             {buttonName}
           </button>
