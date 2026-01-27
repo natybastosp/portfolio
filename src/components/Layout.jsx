@@ -9,11 +9,11 @@ const Layout = ({ children }) => {
       className="h-screen w-screen overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImg})` }}
     >
-      <div className="pt-8 flex justify-center gap-15 mt-8">
+      <div className="pt-0.5 flex justify-center gap-15 mt-2">
         {navButtons.map((buttonName, index) => (
           <button
             key={index}
-            className="bg-transparent hover:bg-pink-soft text-black border-2 border-black font-semibold  px-8 py-3 rounded-full transition-all duration-300"
+            className="bg-transparent hover:bg-[#FFB5C5] text-black border-2 border-black font-semibold  px-8 py-1 rounded-full transition-all duration-300"
           >
             {buttonName}
           </button>

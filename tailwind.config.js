@@ -9,10 +9,6 @@ export default {
           soft: "#FFB5C5",
         },
       },
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        abril: ["Abril Fatface", "serif"],
-      },
     },
   },
   plugins: [],
