@@ -6,7 +6,12 @@ export default {
       colors: {
         pink: {
           100: "#fce7f3",
+          soft: "#FFB5C5",
         },
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        abril: ["Abril Fatface", "serif"],
       },
     },
   },
