@@ -46,12 +46,35 @@ const Sobre = () => {
         easing: "easeInOutQuad",
       });
 
+      // Float sutil na imagem de Natalia
+      animate(".imagem-naty-sobre", {
+        translateY: [
+          { value: -3, duration: 3000 },
+          { value: 3, duration: 3000 },
+        ],
+        loop: true,
+        easing: "easeInOutQuad",
+      });
+
       // Fade-in do card de skills
       animate(".card-skills", {
         opacity: [0, 1],
         translateY: [20, 0],
         duration: 1000,
         delay: 400,
+        easing: "easeInOutQuad",
+      });
+
+      // Pulse sutil no card de skills
+      animate(".card-skills", {
+        boxShadow: [
+          "0 10px 30px rgba(227, 174, 8, 0.1)",
+          "0 15px 40px rgba(227, 174, 8, 0.25)",
+          "0 10px 30px rgba(227, 174, 8, 0.1)",
+        ],
+        duration: 3000,
+        delay: 1500,
+        loop: true,
         easing: "easeInOutQuad",
       });
 
@@ -81,6 +104,7 @@ const Sobre = () => {
         item.addEventListener("mouseenter", () => {
           animate(item, {
             color: "#E3AE08",
+            translateX: 5,
             duration: 300,
             easing: "easeOutQuad",
           });
@@ -89,10 +113,19 @@ const Sobre = () => {
         item.addEventListener("mouseleave", () => {
           animate(item, {
             color: "rgb(0, 0, 0)",
+            translateX: 0,
             duration: 300,
             easing: "easeOutQuad",
           });
         });
+      });
+
+      // Animação de entrada do título "Todas Notas"
+      animate(".titulo-notas", {
+        opacity: [0, 1],
+        delay: 500,
+        duration: 800,
+        easing: "easeOutQuad",
       });
     });
 
@@ -124,7 +157,9 @@ const Sobre = () => {
 
       <div className="card-skills bg-[#F9F5F0] h-96 w-72 rounded-lg shadow-lg z-50 absolute right-1/9 bottom-10 p-2 opacity-0">
         <span className="flex items-center justify-between">
-          <h1 className="text-md text-[#E3AE08] mb-3">Todas Notas</h1>
+          <h1 className="titulo-notas text-md text-[#E3AE08] mb-3 opacity-0">
+            Todas Notas
+          </h1>
           <h1 className="text-md text-[#E3AE08] mb-3">OK</h1>
         </span>
         <div className="mx-3 flex flex-col gap-3">
@@ -139,7 +174,7 @@ const Sobre = () => {
               </div>
             </div>
           </div>
-          <ul className="list-disc list-inside">
+          <ul className="cursor-default list-disc list-inside">
             <li className="skill-item">JavaScript (ES6+)</li>
             <li className="skill-item">HTML5 & CSS3</li>
             <li className="skill-item">Vue.js</li>
