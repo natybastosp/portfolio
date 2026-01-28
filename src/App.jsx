@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Projetos from "./pages/Projetos";
+import Contato from "./pages/Contato";
 
 function App() {
   return (
@@ -11,10 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Sobre" element={<Sobre />} />
         <Route path="/Projetos" element={<Projetos />} />
-        {/* Adicione as outras páginas aqui quando criá-las */}
-        {/* <Route path="/sobre" element={<Sobre />} />
-        
-        <Route path="/contato" element={<Contato />} /> */}
+        <Route path="/Contato" element={<Contato />} />
       </Routes>
     </Layout>
   );

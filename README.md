@@ -224,7 +224,7 @@ Where creativity becomes code!
 - 🌸 **Floriography** - The language of flowers in code
 - 📸 **Autofoto** - Photo editing with AI (so cool!)
 - 💣 **Minesweeper** - Classic game, modern design
-- 📊 **SOL** - AI for mental health
+- ☀️ **SOL** - AI for mental health
 - 📚 **BookSheelf** - Your personalized digital library
 - ☕ **coffeeShop** - E-commerce for coffee lovers
 
