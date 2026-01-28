@@ -1,8 +1,17 @@
 import React from "react";
+import { useLocation, Link } from "react-router-dom";
 import backgroundImg from "../assets/backgroung.jpeg";
 
 const Layout = ({ children }) => {
   const navButtons = ["Home", "Sobre", "Projetos", "Contato"];
+  const location = useLocation();
+
+  const isActive = (buttonName) => {
+    const path = `/${buttonName.toLowerCase()}`;
+    return location.pathname === "/" && buttonName === "Home"
+      ? true
+      : location.pathname === path;
+  };
 
   return (
     <div
@@ -11,12 +20,20 @@ const Layout = ({ children }) => {
     >
       <div className="pt-0.5 flex justify-center gap-15 mt-2">
         {navButtons.map((buttonName, index) => (
-          <button
+          <Link
             key={index}
-            className="bg-transparent hover:bg-[#FFB5C5] text-black border border-black   px-8 py-1 rounded-full transition-all duration-300"
+            to={buttonName === "Home" ? "/" : `/${buttonName.toLowerCase()}`}
           >
-            {buttonName}
-          </button>
+            <button
+              className={`transition-all duration-300 text-black border border-black px-8 py-1 rounded-full ${
+                isActive(buttonName)
+                  ? "bg-[#FFB5C5] 0"
+                  : "bg-transparent hover:bg-[#FFB5C5]"
+              }`}
+            >
+              {buttonName}
+            </button>
+          </Link>
         ))}
       </div>
 
