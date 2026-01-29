@@ -95,7 +95,7 @@ const Contato = () => {
                 <IconComponent
                   size={64}
                   stroke={2}
-                  className="text-purple-400"
+                  className="text-[#FFB5C5]"
                 />
                 <h3 className="font-semibold text-black text-center text-lg">
                   {contato.titulo}

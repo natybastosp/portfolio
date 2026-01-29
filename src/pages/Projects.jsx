@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animate, createScope } from "animejs";
 import { IconBrandGithub } from "@tabler/icons-react";
-import folderIcon from "../assets/folder.svg";
+import folderIcon from "../assets/Pink.svg";
 import "../App.css";
 
 const Projetos = () => {
