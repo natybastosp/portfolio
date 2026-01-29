@@ -119,7 +119,7 @@ const Sobre = () => {
     >
       <div className="texto-apresentacao absolute left-7 top-1/3 text-black flex flex-col justify-center items-center opacity-0">
         <p className="text-2xl text-justify leading-relaxed w-3xl ">
-          Hey! I'm Natalia, a front-end developer turning design visions into
+          Hey! I'm Natália, a front-end developer turning design visions into
           pixel-perfect realities. I'm passionate about creating intuitive
           interfaces where clean code meets thoughtful user experience. Every
           project is an opportunity to build something that users don't just

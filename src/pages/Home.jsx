@@ -61,7 +61,7 @@ const Home = () => {
           Dev-frontend
         </h1>
         <p className="nome-principal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-secondary text-center mt-4 opacity-0">
-          Natalia Pereira
+          Natália Pereira
         </p>
       </div>
 
