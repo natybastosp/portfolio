@@ -3,6 +3,9 @@ import { animate, createScope } from "animejs";
 import coding from "../assets/Coding.jpeg";
 import naty from "../assets/naty.jpeg";
 import quote from "../assets/quote.jpeg";
+import keyboard from "../assets/keyboard.jpeg";
+import background from "../assets/backgroung.jpeg";
+import workingVideo from "../assets/working.mp4";
 
 import Image from "../components/Image";
 
@@ -28,14 +31,13 @@ const Home = () => {
         easing: "easeInOutQuad",
       });
 
-      // Float das imagens - movimento contínuo e sutil
+      // Animação de entrada das imagens - fade-in com scale
       animate(".image-floating", {
-        translateY: [
-          { value: -5, duration: 3000 },
-          { value: 5, duration: 3000 },
-        ],
-        loop: true,
-        easing: "easeInOutQuad",
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        duration: 1000,
+        delay: (el, i) => 500 + i * 150,
+        easing: "easeOutQuad",
       });
 
       // Pulse do título rosa
@@ -95,6 +97,22 @@ const Home = () => {
         position="hidden lg:block left-1/7 bottom-1 image-floating"
         size="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28"
         imgPosition="object-bottom"
+      />
+
+      <Image
+        src={keyboard}
+        alt="keyboard"
+        position="hidden lg:block right-1/7 top-1/3 image-floating"
+        size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
+        imgPosition="object-cover"
+      />
+
+      <Image
+        src={keyboard}
+        alt="keyboard"
+        position="hidden sm:block right-1/11 top-2/3 image-floating"
+        size="w-40 sm:w-48 md:w-56 lg:w-64 h-36 sm:h-44 md:h-52 lg:h-60"
+        imgPosition="object-cover"
       />
     </div>
   );
