@@ -1,5 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { animate, createScope } from "animejs";
+import {
+  IconMail,
+  IconBrandLinkedin,
+  IconBrandGithub,
+} from "@tabler/icons-react";
 import "../App.css";
 
 const Contato = () => {
@@ -41,21 +46,21 @@ const Contato = () => {
   const contatos = [
     {
       id: 1,
-      icone: "📧",
+      icone: IconMail,
       titulo: "Email",
       valor: "natalia@example.com",
       link: "mailto:natalia@example.com",
     },
     {
       id: 2,
-      icone: "💼",
+      icone: IconBrandLinkedin,
       titulo: "LinkedIn",
       valor: "@natybastos",
       link: "https://linkedin.com/in/natybastos",
     },
     {
       id: 3,
-      icone: "🐙",
+      icone: IconBrandGithub,
       titulo: "GitHub",
       valor: "@natybastosp",
       link: "https://github.com/natybastosp",
@@ -79,25 +84,32 @@ const Contato = () => {
 
       {/* Cards de Contato */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
-        {contatos.map((contato) => (
-          <a
-            key={contato.id}
-            href={contato.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-card group"
-          >
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full flex flex-col items-center justify-center gap-4 opacity-0">
-              <span className="text-6xl leading-none">{contato.icone}</span>
-              <h3 className="font-semibold text-black text-center text-lg">
-                {contato.titulo}
-              </h3>
-              <p className="text-sm text-gray-600 text-center">
-                {contato.valor}
-              </p>
-            </div>
-          </a>
-        ))}
+        {contatos.map((contato) => {
+          const IconComponent = contato.icone;
+          return (
+            <a
+              key={contato.id}
+              href={contato.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card group"
+            >
+              <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full flex flex-col items-center justify-center gap-4 opacity-0">
+                <IconComponent
+                  size={64}
+                  stroke={2}
+                  className="text-purple-400"
+                />
+                <h3 className="font-semibold text-black text-center text-lg">
+                  {contato.titulo}
+                </h3>
+                <p className="text-sm text-gray-600 text-center">
+                  {contato.valor}
+                </p>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   );

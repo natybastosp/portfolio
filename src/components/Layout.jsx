@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import backgroundImg from "../assets/backgroung.jpeg";
 
 const Layout = ({ children }) => {
-  const navButtons = ["Home", "Sobre", "Projetos", "Contato"];
+  const navButtons = ["Home", "About", "Projects", "Contact"];
   const location = useLocation();
 
   const isActive = (buttonName) => {

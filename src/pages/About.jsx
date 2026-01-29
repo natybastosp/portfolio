@@ -78,26 +78,6 @@ const Sobre = () => {
         easing: "easeInOutQuad",
       });
 
-      // Hover effect no card - levanta com sombra aumentada
-      const cardElement = document.querySelector(".card-skills");
-      if (cardElement) {
-        cardElement.addEventListener("mouseenter", () => {
-          animate(".card-skills", {
-            translateY: -10,
-            duration: 300,
-            easing: "easeOutQuad",
-          });
-        });
-
-        cardElement.addEventListener("mouseleave", () => {
-          animate(".card-skills", {
-            translateY: 0,
-            duration: 300,
-            easing: "easeOutQuad",
-          });
-        });
-      }
-
       // Hover nos items da lista
       const listItems = document.querySelectorAll(".skill-item");
       listItems.forEach((item) => {

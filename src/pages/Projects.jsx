@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animate, createScope } from "animejs";
+import { IconBrandGithub } from "@tabler/icons-react";
 import folderIcon from "../assets/folder.svg";
 import "../App.css";
 
@@ -12,9 +13,8 @@ const Projetos = () => {
     {
       id: 1,
       name: "Floriography",
-      emoji: "🌸",
       description:
-        "Uma aplicação sobre a linguagem secreta das flores. Cada flor conta uma história especial! �🌷",
+        "Uma aplicação sobre a linguagem secreta das flores. Cada flor conta uma história especial!",
       technologies: ["React", "JavaScript", "Vite", "Tailwind CSS"],
       github:
         "https://github.com/natybastosp/Portifolio-projects/tree/main/Floriography",
@@ -33,9 +33,8 @@ const Projetos = () => {
     {
       id: 3,
       name: "Minesweeper",
-      emoji: "💣",
       description:
-        "O clássico jogo de campo minado reimaginado! Duas versões diferentes para testar tecnologias. 💣�",
+        "O clássico jogo de campo minado reimaginado! Duas versões diferentes para testar tecnologias.",
       technologies: ["React", "TypeScript", "Phaser 3", "Vite"],
       github:
         "https://github.com/natybastosp/Portifolio-projects/tree/main/campo-minado",
@@ -44,9 +43,8 @@ const Projetos = () => {
     {
       id: 4,
       name: "SOL",
-      emoji: "🎵",
       description:
-        "Sistema inteligente de recomendação musical para saúde mental! Combina IA, lógica fuzzy e musicoterapia para bem-estar emocional. �✨",
+        "Sistema inteligente de recomendação musical para saúde mental! Combina IA, lógica fuzzy e musicoterapia para bem-estar emocional.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -60,9 +58,8 @@ const Projetos = () => {
     {
       id: 5,
       name: "BookSheelf",
-      emoji: "📚",
       description:
-        "Aplicativo de gerenciamento e compartilhamento de biblioteca pessoal. Organize seus livros e compartilhe suas leituras! 📚💕",
+        "Aplicativo de gerenciamento e compartilhamento de biblioteca pessoal. Organize seus livros e compartilhe suas leituras!",
       technologies: ["React", "Firebase", "Tailwind CSS"],
       github: "https://github.com/natybastosp/Portifolio-projects",
       status: "Pronto",
@@ -70,7 +67,6 @@ const Projetos = () => {
     {
       id: 6,
       name: "CoffeeShop",
-      emoji: "☕",
       description:
         "Plataforma e-commerce para venda de café especial. Descubra sabores únicos e premium!",
       technologies: ["React", "Stripe API", "Tailwind CSS"],
@@ -106,7 +102,7 @@ const Projetos = () => {
       ref={root}
       className="flex flex-col items-center justify-center min-h-screen w-full px-4 md:px-8 py-20 static"
     >
-      <div className="text-center max-w-4xl mx-auto mb-10  ">
+      <div className="text-center max-w-4xl mx-auto mb-10">
         <h1 className="text-5xl md:text-7xl font-secondary text-black mb-4 opacity-0">
           My projects
         </h1>
@@ -124,7 +120,7 @@ const Projetos = () => {
               className="projeto-folder flex flex-col items-center justify-center opacity-0 cursor-pointer group"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="relative mb-4 ">
+              <div className="relative mb-4">
                 <img
                   src={folderIcon}
                   alt={project.name}
@@ -225,10 +221,11 @@ const Projetos = () => {
                 </button>
               )}
               <button
-                className="flex-1 border-2 border-purple-400 text-purple-400 px-4 py-2 rounded-lg font-medium modal-button-secondary animate-button-slide-up"
+                className="flex-1 border-2 border-purple-400 text-purple-400 px-4 py-2 rounded-lg font-medium modal-button-secondary animate-button-slide-up flex items-center justify-center gap-2"
                 onClick={() => window.open(selectedProject.github, "_blank")}
                 style={{ animationDelay: "0.4s" }}
               >
+                <IconBrandGithub size={20} />
                 GitHub
               </button>
             </div>

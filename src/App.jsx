@@ -1,18 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Sobre from "./pages/Sobre";
-import Projetos from "./pages/Projetos";
-import Contato from "./pages/Contato";
+import Sobre from "./pages/About";
+import Projetos from "./pages/Projects";
+import Contato from "./pages/Contact";
 
 function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Sobre" element={<Sobre />} />
-        <Route path="/Projetos" element={<Projetos />} />
-        <Route path="/Contato" element={<Contato />} />
+        <Route path="/about" element={<Sobre />} />
+        <Route path="/projects" element={<Projetos />} />
+        <Route path="/contact" element={<Contato />} />
       </Routes>
     </Layout>
   );
