@@ -15,10 +15,17 @@ const Projetos = () => {
       name: "Floriography",
       description:
         "Uma aplicação sobre a linguagem secreta das flores. Cada flor conta uma história especial!",
-      technologies: ["React", "JavaScript", "Vite", "Tailwind CSS"],
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
       github:
         "https://github.com/natybastosp/Portifolio-projects/tree/main/Floriography",
-      status: "Pronto",
+      keyFeatures: [
+        "Beautiful flower encyclopedia",
+        "Interactive flower meanings",
+        "Floral arrangement suggestions",
+        "Share flower stories",
+        "Responsive design",
+        "Fast performance",
+      ],
     },
     {
       id: 2,
@@ -28,7 +35,14 @@ const Projetos = () => {
       technologies: ["React", "TypeScript", "Vite", "React Router"],
       github:
         "https://github.com/natybastosp/Portifolio-projects/tree/main/Autofoto",
-      status: "Pronto",
+      keyFeatures: [
+        "Vintage photo booth simulator",
+        "Multiple filter options",
+        "Fun frame designs",
+        "Photo download feature",
+        "Real-time preview",
+        "Mobile friendly",
+      ],
     },
     {
       id: 3,
@@ -38,22 +52,37 @@ const Projetos = () => {
       technologies: ["React", "TypeScript", "Phaser 3", "Vite"],
       github:
         "https://github.com/natybastosp/Portifolio-projects/tree/main/campo-minado",
-      status: "Pronto",
+      keyFeatures: [
+        "Classic minesweeper gameplay",
+        "Multiple difficulty levels",
+        "Smooth animations",
+        "Score tracking",
+        "Keyboard controls",
+        "Responsive design",
+      ],
     },
     {
       id: 4,
       name: "SOL",
       description:
-        "Sistema inteligente de recomendação musical para saúde mental! Combina IA, lógica fuzzy e musicoterapia para bem-estar emocional.",
+        "An intelligent music recommendation system that combines AI, Fuzzy Logic, and Music Therapy to promote mental well-being through personalized emotional playlists. Developed as final thesis (TCC) combining music therapy research with AI technology to create an innovative mental health tool.",
       technologies: [
         "Next.js",
         "TypeScript",
         "Node.js",
         "PostgreSQL",
         "Fuzzy Logic",
+        "Spotify API",
       ],
       github: "https://github.com/natybastosp/sistema_SOl",
-      status: "Pronto",
+      keyFeatures: [
+        "Fuzzy Logic AI recommendation engine",
+        "2,184+ emotionally classified songs",
+        "Spotify API integration",
+        "JWT authentication system",
+        "Personalized emotional analysis",
+        "Real-time playlist generation",
+      ],
     },
     {
       id: 5,
@@ -62,7 +91,14 @@ const Projetos = () => {
         "Aplicativo de gerenciamento e compartilhamento de biblioteca pessoal. Organize seus livros e compartilhe suas leituras!",
       technologies: ["React", "Firebase", "Tailwind CSS"],
       github: "https://github.com/natybastosp/Portifolio-projects",
-      status: "Pronto",
+      keyFeatures: [
+        "Organize your book collection",
+        "Add custom ratings and reviews",
+        "Share reading lists with friends",
+        "Track reading progress",
+        "Book recommendations",
+        "Cloud sync",
+      ],
     },
     {
       id: 6,
@@ -71,7 +107,14 @@ const Projetos = () => {
         "Plataforma e-commerce para venda de café especial. Descubra sabores únicos e premium!",
       technologies: ["React", "Stripe API", "Tailwind CSS"],
       github: "https://github.com/natybastosp/Portifolio-projects",
-      status: "Pronto",
+      keyFeatures: [
+        "Premium coffee selection",
+        "Secure payment with Stripe",
+        "Order tracking",
+        "Customer reviews",
+        "Subscription options",
+        "Fast shipping",
+      ],
     },
   ];
 
@@ -145,89 +188,93 @@ const Projetos = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-white rounded-lg max-w-2xl w-full p-8 shadow-2xl relative animate-modal-slide-up"
+            className="bg-[#FFFAFA] rounded-lg max-w-4xl w-full p-0 shadow-2xl animate-modal-slide-up overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 text-gray-500 hover:text-gray-700 text-2xl close-button p-1"
-            >
-              ✕
-            </button>
-
-            {/* Header com ícone */}
-            <div className="flex items-start gap-6 mb-6 animate-slide-in-left">
-              <img
-                src={folderIcon}
-                alt={selectedProject.name}
-                className="w-20 h-20 object-contain shrink-0"
-              />
-              <div className="flex-1">
-                <h2 className="text-3xl font-secondary text-black mb-2">
-                  {selectedProject.name}
-                </h2>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  {selectedProject.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Technologies */}
-            <div className="mt-6 animate-slide-in-right">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                TECHNOLOGIES:
-              </h3>
-              <div className="flex gap-2 flex-wrap">
-                {selectedProject.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-purple-400 text-black px-4 py-2 rounded-full text-sm font-medium animate-tech-tag"
-                    style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Status */}
-            {selectedProject.status && (
-              <div
-                className="mt-4 animate-slide-in-right"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <span
-                  className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
-                    selectedProject.status === "Pronto"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-blue-100 text-blue-700"
-                  }`}
-                >
-                  {selectedProject.status === "Pronto" ? "✨" : "💕"}{" "}
-                  {selectedProject.status}
-                </span>
-              </div>
-            )}
-
-            {/* Links */}
-            <div className="mt-8 flex gap-4">
-              {selectedProject.live && (
-                <button
-                  onClick={() => window.open(selectedProject.live, "_blank")}
-                  className="flex-1 bg-purple-400 text-black px-4 py-2 rounded-lg font-medium modal-button-primary animate-button-slide-up"
-                >
-                  Live Demo
-                </button>
-              )}
+            {/* Header */}
+            <div className="bg-white flex items-center justify-between px-6 ">
+              <h2 className="text-3xl font-secondary text-black mt-2 grow">
+                {selectedProject.name}
+              </h2>
               <button
-                className="flex-1 border-2 border-purple-400 text-purple-400 px-4 py-2 rounded-lg font-medium modal-button-secondary animate-button-slide-up flex items-center justify-center gap-2"
+                className=" text-gray-500 hover:text-purple-500 transition-colors"
                 onClick={() => window.open(selectedProject.github, "_blank")}
                 style={{ animationDelay: "0.4s" }}
               >
-                <IconBrandGithub size={20} />
-                GitHub
+                <IconBrandGithub size={20} className="github-button-icon" />
               </button>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className=" text-gray-500 hover:text-gray-700 text-2xl close-button p-1 z-10"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-8">
+              {/* Left side - Image placeholder */}
+              <div className="bg-linear-to-br  min-h-96 lg:min-h-full flex items-center justify-center ">
+                <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+                  {/* Imagem será adicionada aqui */}
+                  <span className="text-center">Imagem do projeto</span>
+                </div>
+              </div>
+
+              {/* Right side - Content */}
+              <div className="  flex flex-col gap-3 justify-between">
+                {/* Header */}
+                <div className="animate-slide-in-left">
+                  <p className="text-base leading-relaxed text-justify ">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {/* Technologies */}
+                <div className=" animate-slide-in-right">
+                  <h3 className="text-sm font-semibold  mb-3  uppercase tracking-wide">
+                    Tecnologias:
+                  </h3>
+                  <div className="flex gap-2 flex-wrap">
+                    {selectedProject.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className=" text-black   text-sm font-medium animate-tech-tag"
+                        style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                      >
+                        {tech}
+                        {index < selectedProject.technologies.length - 1 &&
+                          " |"}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Features */}
+                {selectedProject.keyFeatures && (
+                  <div
+                    className="animate-slide-in-right"
+                    style={{ animationDelay: "0.4s" }}
+                  >
+                    <h3 className="text-sm font-semibold  mb-3 uppercase tracking-wide">
+                      Key Features:
+                    </h3>
+                    <ul className="space-y-2">
+                      {selectedProject.keyFeatures.map((feature, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3  text-sm animate-tech-tag"
+                          style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                        >
+                          <span className="text-purple-400 font-bold mt-1">
+                            ✓
+                          </span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

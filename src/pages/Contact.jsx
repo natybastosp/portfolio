@@ -83,7 +83,7 @@ const Contato = () => {
       </div>
 
       {/* Cards de Contato */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+      <div className="grid grid-cols-1  md:grid-cols-3 gap-6 w-full max-w-4xl">
         {contatos.map((contato) => {
           const IconComponent = contato.icone;
           return (
@@ -92,7 +92,7 @@ const Contato = () => {
               href={contato.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-card group"
+              className="contact-card group "
             >
               <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full flex flex-col items-center justify-center gap-4 opacity-0">
                 <IconComponent

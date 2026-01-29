@@ -137,6 +137,15 @@
   transform: rotate(90deg) scale(1.1);
 }
 
+/* GitHub button animation */
+.github-button-icon {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-button-secondary:hover .github-button-icon {
+  transform: rotate(360deg) scale(1.2);
+}
+
 /* Animações para página de Contato */
 
 /* Cards de contato com hover */
