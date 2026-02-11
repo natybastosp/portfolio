@@ -10,7 +10,6 @@ A modern, responsive, and lively personal portfolio built with React, Vite, Tail
 ![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?logo=vite&style=flat-square)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.18-06B6D4?logo=tailwindcss&style=flat-square)
 ![GSAP](https://img.shields.io/badge/GSAP-3.x-88CEF5?logo=javascript&style=flat-square)
-![Anime.js](https://img.shields.io/badge/Anime.js-4.3.5-FF1B6D?logo=javascript&style=flat-square)
 
 </div>
 
@@ -25,7 +24,7 @@ This is a portfolio that goes beyond the ordinary - it's a reflection of my pass
 ## ✨ What makes it all special?
 
 - 💅 **Truly Responsive Design**: Perfect on any screen with GSAP MatchMedia - no hardcoded positions!
-- 🎬 **Enchanting Animations**: Smooth transitions with Anime.js and GSAP that bring the project to life
+- 🎬 **Enchanting Animations**: Smooth transitions with GSAP that bring the project to life
 - 🧭 **Fluid Navigation**: Exploring is as easy as it is beautiful
 - 🎁 **Interactive Modal**: Discover project details with a single click
 - 📁 **Folder Gallery**: A creative way to explore your work
@@ -84,8 +83,7 @@ portfolio/
 - **Vite 7.2.4** - Speed that speaks for itself
 - **React Router DOM 7.13.0** - Traveling between pages
 - **Tailwind CSS 4.1.18** - Styling with superpowers
-- **Anime.js 4.3.5** - Animations that touch your heart
-- **GSAP 3.x** - Advanced animations and responsive layouts ⭐ **NEW!**
+- **GSAP 3.x** - Advanced animations and responsive layouts ⭐
 
 ### 🔧 Development
 
@@ -280,11 +278,12 @@ Look for `tailwind.config.js`:
 
 Want to customize animations? Edit the hook or component files:
 
-**Anime.js animations** (`src/pages/Home.jsx`):
+**GSAP animations** (`src/pages/Home.jsx`):
 
 ```javascript
-duration: 1000,      // How long does it take? (in ms)
-delay: (el, i) => i * 150,  // How long to wait between each?
+duration: 1,        // How long does it take? (in seconds)
+delay: 0.1 + index * 0.1,  // How long to wait between each?
+ease: "power2.inOut"  // Type of easing animation
 ```
 
 **GSAP MatchMedia** (`src/hooks/useResponsiveLayout.js`):
@@ -333,7 +332,7 @@ Component for images that understand style and are now **100% responsive** with 
 The first "Hi!" of your portfolio
 
 - ✨ Impressive hero section with responsive image positioning
-- 💖 Memorable introduction with Anime.js animations
+- 💖 Memorable introduction with GSAP animations
 - 🎯 CTA to explore projects
 - 📱 Perfect on all devices (Mobile → Tablet → Desktop)
 
@@ -440,6 +439,6 @@ MIT License - Which means you can use, modify, and share! 💕
 
 **If you liked it, leave a ⭐ and share with someone special!**
 
-`React` `Vite` `Tailwind CSS` `JavaScript` `Anime.js`
+`React` `Vite` `Tailwind CSS` `JavaScript` `GSAP`
 
 </div>

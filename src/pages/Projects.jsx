@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { animate, createScope } from "animejs";
+import gsap from "gsap";
 import { IconBrandGithub } from "@tabler/icons-react";
 import folderIcon from "../assets/Pink.svg";
 import "../App.css";
 
 const Projetos = () => {
   const root = useRef(null);
-  const scope = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
@@ -119,25 +118,31 @@ const Projetos = () => {
   ];
 
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
+    const ctx = gsap.context(() => {
       // Fade-in do título
-      animate("h1", {
-        opacity: [0, 1],
-        duration: 1000,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        "h1",
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.inOut" },
+      );
 
-      // Fade-in das pastas
-      animate(".projeto-folder", {
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        duration: 800,
-        delay: (el, i) => i * 100,
-        easing: "easeOutQuad",
+      // Fade-in das pastas com delay por índice
+      gsap.utils.toArray(".projeto-folder").forEach((el, index) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power2.out",
+          },
+        );
       });
-    });
+    }, root);
 
-    return () => scope.current?.revert();
+    return () => ctx.revert();
   }, []);
 
   return (

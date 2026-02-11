@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { animate, createScope } from "animejs";
+import gsap from "gsap";
 
 import naty from "../assets/naty.jpeg";
 
@@ -7,109 +7,117 @@ import Image from "../components/Image";
 
 const Sobre = () => {
   const root = useRef(null);
-  const scope = useRef(null);
 
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
+    const ctx = gsap.context(() => {
       // Fade-in do texto de apresentação
-      animate(".texto-apresentacao", {
-        opacity: [0, 1],
-        translateX: [-30, 0],
-        duration: 1000,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        ".texto-apresentacao",
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0, duration: 1, ease: "power2.inOut" },
+      );
 
       // Animação da barra vertical - cresce de cima para baixo
-      animate(".barra-vertical", {
-        scaleY: [0, 1],
-        transformOrigin: "top",
-        duration: 800,
-        delay: 200,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        ".barra-vertical",
+        { scaleY: 0, transformOrigin: "top" },
+        {
+          scaleY: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power2.inOut",
+        },
+      );
 
       // Bolinha aparece com efeito pop
-      animate(".bolinha-tech", {
-        opacity: [0, 1],
-        scale: [0, 1],
-        duration: 500,
-        delay: 900,
-        easing: "easeOutBack",
-      });
+      gsap.fromTo(
+        ".bolinha-tech",
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          delay: 0.9,
+          ease: "back.out",
+        },
+      );
 
       // Fade-in e slide da imagem
-      animate(".imagem-naty-sobre", {
-        opacity: [0, 1],
-        translateY: [30, 0],
-        duration: 1000,
-        delay: 300,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        ".imagem-naty-sobre",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power2.inOut",
+        },
+      );
 
       // Float sutil na imagem de Natalia
-      animate(".imagem-naty-sobre", {
-        translateY: [
-          { value: -3, duration: 3000 },
-          { value: 3, duration: 3000 },
-        ],
-        loop: true,
-        easing: "easeInOutQuad",
+      gsap.to(".imagem-naty-sobre", {
+        y: 3,
+        duration: 3,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
       });
 
       // Fade-in do card de skills
-      animate(".card-skills", {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 1000,
-        delay: 400,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        ".card-skills",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.4,
+          ease: "power2.inOut",
+        },
+      );
 
       // Pulse sutil no card de skills
-      animate(".card-skills", {
-        boxShadow: [
-          "0 10px 30px rgba(227, 174, 8, 0.1)",
-          "0 15px 40px rgba(227, 174, 8, 0.25)",
-          "0 10px 30px rgba(227, 174, 8, 0.1)",
-        ],
-        duration: 3000,
-        delay: 1500,
-        loop: true,
-        easing: "easeInOutQuad",
+      gsap.to(".card-skills", {
+        boxShadow: "0 15px 40px rgba(227, 174, 8, 0.25)",
+        duration: 3,
+        delay: 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
       });
 
       // Hover nos items da lista
       const listItems = document.querySelectorAll(".skill-item");
       listItems.forEach((item) => {
         item.addEventListener("mouseenter", () => {
-          animate(item, {
+          gsap.to(item, {
             color: "#E3AE08",
-            translateX: 5,
-            duration: 300,
-            easing: "easeOutQuad",
+            x: 5,
+            duration: 0.3,
+            ease: "power2.out",
           });
         });
 
         item.addEventListener("mouseleave", () => {
-          animate(item, {
+          gsap.to(item, {
             color: "rgb(0, 0, 0)",
-            translateX: 0,
-            duration: 300,
-            easing: "easeOutQuad",
+            x: 0,
+            duration: 0.3,
+            ease: "power2.out",
           });
         });
       });
 
       // Animação de entrada do título "Todas Notas"
-      animate(".titulo-notas", {
-        opacity: [0, 1],
-        delay: 500,
-        duration: 800,
-        easing: "easeOutQuad",
-      });
-    });
+      gsap.fromTo(
+        ".titulo-notas",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, delay: 0.5, ease: "power2.out" },
+      );
+    }, root);
 
-    return () => scope.current?.revert();
+    return () => ctx.revert();
   }, []);
 
   return (

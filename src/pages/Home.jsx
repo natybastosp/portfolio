@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { animate, createScope } from "animejs";
+import gsap from "gsap";
 import coding from "../assets/Coding.jpeg";
 import naty from "../assets/naty.jpeg";
 import quote from "../assets/quote.jpeg";
@@ -11,42 +11,40 @@ import { useResponsiveLayout } from "../hooks/useResponsiveLayout";
 
 const Home = () => {
   const root = useRef(null);
-  const scope = useRef(null);
   const containerRef = useRef(null);
 
   // Usar hook de layout responsivo com GSAP
   useResponsiveLayout(containerRef);
 
-  // Animações do Anime.js para o título e textos
+  // Animações do GSAP para o título e textos
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
+    const ctx = gsap.context(() => {
       // Fade-in do título
-      animate("h1", {
-        opacity: [0, 1],
-        duration: 1000,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        "h1",
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.inOut" },
+      );
 
       // Fade-in do nome com slight slide
-      animate(".nome-principal", {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 1200,
-        delay: 300,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        ".nome-principal",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1.2, delay: 0.3, ease: "power2.inOut" },
+      );
 
       // Pulse do título rosa
-      animate("h1", {
-        opacity: [1, 0.7, 1],
-        duration: 2500,
-        delay: 1500,
-        loop: true,
-        easing: "easeInOutQuad",
+      gsap.to("h1", {
+        opacity: 0.7,
+        duration: 2.5,
+        delay: 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: "power2.inOut",
       });
-    });
+    }, root);
 
-    return () => scope.current?.revert();
+    return () => ctx.revert();
   }, []);
 
   return (

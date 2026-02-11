@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { animate, createScope } from "animejs";
+import gsap from "gsap";
 import {
   IconMail,
   IconBrandLinkedin,
@@ -9,38 +9,40 @@ import "../App.css";
 
 const Contato = () => {
   const root = useRef(null);
-  const scope = useRef(null);
 
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
+    const ctx = gsap.context(() => {
       // Fade-in do título
-      animate("h1", {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 1000,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        "h1",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, ease: "power2.inOut" },
+      );
 
       // Fade-in da descrição
-      animate("p.subtitle", {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 1000,
-        delay: 100,
-        easing: "easeInOutQuad",
-      });
+      gsap.fromTo(
+        "p.subtitle",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, delay: 0.1, ease: "power2.inOut" },
+      );
 
-      // Fade-in dos cards de contato
-      animate(".contact-card", {
-        opacity: [0, 1],
-        scale: [0.9, 1],
-        duration: 800,
-        delay: (el, i) => 200 + i * 100,
-        easing: "easeOutQuad",
+      // Fade-in dos cards de contato com delay por índice
+      gsap.utils.toArray(".contact-card").forEach((el, index) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: 0.2 + index * 0.1,
+            ease: "power2.out",
+          },
+        );
       });
-    });
+    }, root);
 
-    return () => scope.current?.revert();
+    return () => ctx.revert();
   }, []);
 
   const contatos = [
