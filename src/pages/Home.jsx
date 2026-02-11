@@ -4,15 +4,20 @@ import coding from "../assets/Coding.jpeg";
 import naty from "../assets/naty.jpeg";
 import quote from "../assets/quote.jpeg";
 import keyboard from "../assets/keyboard.jpeg";
-import background from "../assets/backgroung.jpeg";
-import workingVideo from "../assets/working.mp4";
+import codeLine from "../assets/codeLine.png";
 
 import Image from "../components/Image";
+import { useResponsiveLayout } from "../hooks/useResponsiveLayout";
 
 const Home = () => {
   const root = useRef(null);
   const scope = useRef(null);
+  const containerRef = useRef(null);
 
+  // Usar hook de layout responsivo com GSAP
+  useResponsiveLayout(containerRef);
+
+  // Animações do Anime.js para o título e textos
   useEffect(() => {
     scope.current = createScope({ root }).add(() => {
       // Fade-in do título
@@ -29,15 +34,6 @@ const Home = () => {
         duration: 1200,
         delay: 300,
         easing: "easeInOutQuad",
-      });
-
-      // Animação de entrada das imagens - fade-in com scale
-      animate(".image-floating", {
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        duration: 1000,
-        delay: (el, i) => 500 + i * 150,
-        easing: "easeOutQuad",
       });
 
       // Pulse do título rosa
@@ -58,62 +54,73 @@ const Home = () => {
       ref={root}
       className="flex items-center justify-center min-h-screen w-full px-4 md:px-8 static overflow-hidden"
     >
-      <div className="text-black flex flex-col justify-center items-center max-w-4xl mx-auto">
-        <h1 className="bg-[#FFB5C5] w-fit font-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl p-0.5 px-2 text-center opacity-0">
-          Dev-frontend
-        </h1>
-        <p className="nome-principal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-secondary text-center mt-4 opacity-0">
-          Natália Pereira
-        </p>
+      <div
+        ref={containerRef}
+        className="w-full h-full relative flex items-center justify-center"
+      >
+        <div className="text-black flex flex-col justify-center items-center max-w-4xl mx-auto">
+          <h1 className="bg-[#FFB5C5] w-fit font-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl p-0.5 px-2 text-center opacity-0">
+            Dev-frontend
+          </h1>
+          <p className="nome-principal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-secondary text-center mt-4 opacity-0">
+            Natália Pereira
+          </p>
+        </div>
+
+        {/* Imagem Coding - responsiva com GSAP */}
+        <Image
+          src={coding}
+          alt="coding"
+          imageName="coding"
+          size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
+          imgPosition="object-bottom"
+        />
+
+        {/* Imagem da Natália - responsiva com GSAP */}
+        <Image
+          src={naty}
+          alt="naty"
+          imageName="naty"
+          size="w-20 sm:w-24 md:w-28 lg:w-32 h-20 sm:h-24 md:h-28 lg:h-32"
+          imgPosition="object-center"
+        />
+
+        {/* Quote 1 - responsiva com GSAP */}
+        <Image
+          src={quote}
+          alt="quote"
+          imageName="quote1"
+          size="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28"
+          imgPosition="object-bottom"
+        />
+
+        {/* Quote 2 - responsiva com GSAP */}
+        <Image
+          src={quote}
+          alt="quote"
+          imageName="quote2"
+          size="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28"
+          imgPosition="object-bottom"
+        />
+
+        {/* Teclado - responsiva com GSAP */}
+        <Image
+          src={keyboard}
+          alt="keyboard"
+          imageName="keyboard"
+          size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
+          imgPosition="object-cover"
+        />
+
+        {/* Linha de Código - responsiva com GSAP */}
+        <Image
+          src={codeLine}
+          alt="code line"
+          imageName="codeLine"
+          size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
+          imgPosition="object-cover"
+        />
       </div>
-
-      <Image
-        src={naty}
-        alt="naty"
-        position="hidden md:block left-1/5 z-50 bottom-45 image-floating"
-        size="w-20 sm:w-24 md:w-28 lg:w-32 h-20 sm:h-24 md:h-28 lg:h-32"
-        imgPosition="object-center"
-      />
-
-      <Image
-        src={coding}
-        alt="coding"
-        position="hidden lg:block left-1/12 top-1/3 image-floating"
-        size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
-        imgPosition="object-bottom"
-      />
-
-      <Image
-        src={quote}
-        alt="quote"
-        position="hidden sm:block left-1/11 bottom-1/12 image-floating"
-        size="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28"
-        imgPosition="object-bottom"
-      />
-
-      <Image
-        src={quote}
-        alt="quote"
-        position="hidden lg:block left-1/7 bottom-1 image-floating"
-        size="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28"
-        imgPosition="object-bottom"
-      />
-
-      <Image
-        src={keyboard}
-        alt="keyboard"
-        position="hidden lg:block right-1/7 top-1/3 image-floating"
-        size="w-40 sm:w-48 md:w-56 lg:w-64 h-44 sm:h-52 md:h-60 lg:h-72"
-        imgPosition="object-cover"
-      />
-
-      <Image
-        src={keyboard}
-        alt="keyboard"
-        position="hidden sm:block right-1/11 top-2/3 image-floating"
-        size="w-40 sm:w-48 md:w-56 lg:w-64 h-36 sm:h-44 md:h-52 lg:h-60"
-        imgPosition="object-cover"
-      />
     </div>
   );
 };

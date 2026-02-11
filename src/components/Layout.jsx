@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
             to={buttonName === "Home" ? "/" : `/${buttonName.toLowerCase()}`}
           >
             <button
-              className={`transition-all duration-300 text-black border border-black px-8 py-1 rounded-full ${
+              className={`transition-all duration-300 text-black border border-black px-8 py-1 rounded-full text-lg ${
                 isActive(buttonName)
                   ? "bg-[#FFB5C5]"
                   : "bg-transparent hover:bg-[#FFB5C5]"
