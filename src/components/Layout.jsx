@@ -4,7 +4,7 @@ import { IconMenu2 } from "@tabler/icons-react";
 import backgroundImg from "../assets/backgroung.jpeg";
 
 const Layout = ({ children }) => {
-  const navButtons = ["Home", "About", "Projects", "Contact"];
+  const navButtons = ["Home", "About", /* "Projects" ,*/ "Contact"];
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
